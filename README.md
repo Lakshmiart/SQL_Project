@@ -10,9 +10,9 @@
    strategies and improving retention rates.
    
  ### Objective 
--To utilize SQL queries for data cleaning and exploratory data analysis to ensure data quality and gain initial insights.
--To identify high and low sales products to optimize inventory and tailor marketing efforts.
--To segment customers based on their purchasing behavior for targeted marketing campaigns. Create Customer segments 
+- To utilize SQL queries for data cleaning and exploratory data analysis to ensure data quality and gain initial insights.
+- To identify high and low sales products to optimize inventory and tailor marketing efforts.
+- To segment customers based on their purchasing behavior for targeted marketing campaigns. Create Customer segments 
 
 ### Dataset Used
 <a href="https://github.com/Lakshmiart/SQL_Project/blob/main/customer_profiles.csv">Customer_Profiles<a/>
