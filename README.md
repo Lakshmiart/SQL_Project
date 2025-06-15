@@ -16,5 +16,5 @@
 
 ### Dataset Used
 <a href="https://github.com/Lakshmiart/SQL_Project/blob/main/customer_profiles.csv">Customer_Profiles<a/>
-<a href="https://github.com/Lakshmiart/SQL_Project/blob/main/product_inventory.csv"Product_inventory<a/>
-<a href="https://github.com/Lakshmiart/SQL_Project/blob/main/sales_transaction.csv" sales_transaction<a/>
+<a href="https://github.com/Lakshmiart/SQL_Project/blob/main/product_inventory.csv">Product_inventory<a/>
+<a href="https://github.com/Lakshmiart/SQL_Project/blob/main/sales_transaction.csv">sales_transaction<a/>
