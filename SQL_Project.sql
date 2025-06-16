@@ -1,6 +1,6 @@
 use projectdp;
 
--- Q1-Write a query to identify the number of duplicates in "sales_transaction" table. 
+-- Q1: Write a query to identify the number of duplicates in "sales_transaction" table. 
 -- Also, create a separate table containing the unique values and remove the the original table 
 -- from the databases and replace the name of the new table with the original name.
 
@@ -14,7 +14,7 @@ ALTER TABLE Sales_transaction1
 RENAME TO Sales_transaction;
 select * from Sales_transaction;
 
--- Q2-Write a query to identify the discrepancies in the price of the same product 
+-- Q2: Write a query to identify the discrepancies in the price of the same product 
 -- in "sales_transaction" and "product_inventory" tables. Also, 
 -- update those discrepancies to match the price in both the tables. 
 
@@ -28,7 +28,7 @@ price=(select pi.price from product_inventory pi where pi.ï»¿ProductID=st.Pro
 where st.productID in 
 (select pi.ï»¿ProductID from product_inventory pi where st.Price<>pi.Price);
 
--- Q3 Write a SQL query to identify the null values in the dataset and replace those by “Unknown”.
+-- Q3: Write a SQL query to identify the null values in the dataset and replace those by “Unknown”.
 select count(*) 
 from customer_profiles 
 where location is Null;
@@ -39,7 +39,7 @@ where location is null;
 
 select * from customer_profiles ;   
     
--- Q4-Write a SQL query to summarize the total sales and quantities sold per product by the company.
+-- Q4: Write a SQL query to summarize the total sales and quantities sold per product by the company.
 select ProductID, sum(quantitypurchased) as TotalUnitsSold, sum(quantitypurchased*price) as TotalSales
 from Sales_transaction
 group by ProductID
@@ -52,8 +52,8 @@ from Sales_transaction
 group by 1
 order by 2 desc;
 
--- Write a SQL query to evaluate the performance of the product categories based on the total sales 
--- which help us understand the product categories which needs to be promoted in the marketing campaigns.
+-- Q-5: Write a SQL query to evaluate the performance of the product categories based on the total sales 
+-- Q-6: which help us understand the product categories which needs to be promoted in the marketing campaigns.
 
 
 Select Pi.Category, sum(st.quantitypurchased) as TotalUnitsSold, sum(st.Price*st.quantitypurchased) as TotalSales
@@ -62,7 +62,7 @@ join product_inventory PI on st.productID=Pi.ï»¿ProductID
 group by PI.Category
 order by TotalSales desc;
 
--- Write a SQL query to find the top 10 products with the total sales revenue 
+-- Q7: Write a SQL query to find the top 10 products with the total sales revenue 
 -- from the sales transactions. This will help the company to identify the High sales products 
 -- which needs to be focused to increase the revenue of the company.
 
@@ -73,7 +73,7 @@ group by ProductID
 order by TotalRevenue desc
 limit 10;
 
--- Write a SQL query to find the ten products with the least amount of units 
+-- Q8: Write a SQL query to find the ten products with the least amount of units 
 -- sold from the sales transactions, provided that at least one unit was sold for those products.
 
 select ProductID, sum(QuantityPurchased) as TotalUnitsSold
@@ -83,7 +83,7 @@ having sum(QuantityPurchased)>1
 order by 2 
 limit 10;
 
--- Write a SQL query to understand the month on month growth rate of sales of the company 
+-- Q9: Write a SQL query to understand the month on month growth rate of sales of the company 
 -- which will help understand the growth trend of the company.
 WITH monthly_sales AS
 
@@ -123,7 +123,7 @@ ORDER BY
 
    month;
 
--- Write a SQL query that describes the number of transaction along with the total amount spent by each customer 
+-- Q-10: Write a SQL query that describes the number of transaction along with the total amount spent by each customer 
 -- which are on the higher side and will help us understand the customers who are the high frequency purchase customers in the company. 
 
 select CustomerID, 
@@ -133,7 +133,7 @@ group by CustomerID
 having count(ï»¿TransactionID)>10 and sum(Price*quantityPurchased)>1000
 order by TotalSpent desc;
 
--- Write a SQL query that describes the number of transaction along with the total amount spent by each customer,
+-- Q11: Write a SQL query that describes the number of transaction along with the total amount spent by each customer,
 -- which will help us understand the customers who are occasional customers or have low purchase frequency in the company. 
 
 select CustomerID, Count(ï»¿TransactionID) as NumberOfTransactions, 
@@ -143,7 +143,7 @@ group by CustomerID
 having Count(ï»¿TransactionID)<=2
 order by 2, 3 desc;
 
--- Write a SQL query that describes the total number of purchases made by each customer 
+--Q12: Write a SQL query that describes the total number of purchases made by each customer 
 -- against each productID to understand the repeat customers in the company. 
 
 select CustomerID, ProductID, count(ProductID) as TimesPurchased
@@ -152,7 +152,7 @@ group by CustomerID, ProductID
 having count(ProductID)>1
 order by 3 desc;
 
--- Write an SQL query that segments customers based on the total quantity of products they have purchased. Also, 
+-- Q13: Write an SQL query that segments customers based on the total quantity of products they have purchased. Also, 
 -- count the number of customers in each segment which will help us target a particular segment for marketing.
 
 CREATE TABLE customer_SEGMENT AS
